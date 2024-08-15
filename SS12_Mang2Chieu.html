@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr2D = [];
+    let row = prompt("Nhp số hàng");
+    let col = prompt("nhập số cột");
+    for (let i = 0; i < row; i++) {
+        arr2D[i] = [];
+        for (let j = 0; j < col; j++) {
+            arr2D[i][j] = prompt("Nhập giá tri phần tử của mảng");
+        }
+    }
+
+    for (let i = 0; i < arr2D.length; i++) {
+        document.write("[")
+        for (let j = 0; j < arr2D[i].length; j++) {
+            document.writeln(arr2D[i][j]);
+        }
+        document.writeln("]");
+    }
+
+</script>
+</body>
+</html>

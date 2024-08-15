@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style> table {
+        border-collapse: collapse;
+    }
+    </style>
+</head>
+<body>
+<h2> Add New Products</h2>
+<input type="text" id="name" placeholder="Nhap ten...">
+<input type="number" id="price" placeholder="Nhap gia...">
+<input type="text" id="color" placeholder="Nhap color...">
+<button onclick="addNewProduct()">Add</button>
+<h3> Display all Products</h3>
+<h4 id="total"></h4>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col" align = "left">STT</th>
+        <th scope="col" align = "left">Ten</th>
+        <th scope="col">Gia</th>
+        <th scope="col">Mau sac</th>
+        <th scope="col">Sua</th>
+        <th scope="col">Xoa</th>
+    </tr>
+    </thead>
+    <tbody id="data">
+
+    </tbody>
+</table>
+<script>
+    class Product {
+        constructor(name, price, color) {
+            this.name = name;
+            this.price = price;
+            this.color = color;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        getColor() {
+            return this.color;
+        }
+    }
+
+    let product1 = new Product("Sony Xperia", 200, "Black");
+    let product2 = new Product("Samsung Galaxy", 300, "White");
+    let product3 = new Product("Iphone 15 Promax", 1000, "Pink");
+    let array = [product1, product2, product3];
+
+    function displayProduct(array) {
+        let str = "";
+        for (let i = 0; i < array.length; i++) {
+
+            str += `<tr>
+        <td>${i + 1}</td>
+        <td>${array[i].getName()}</td>
+        <td>${array[i].getPrice()}</td>
+        <td>${array[i].getColor()}</td>
+        <td>
+        <button type="button" class="btn btn-outline-primary">Edit</button>
+        </td>
+        <td>
+        <button type="button" class="btn btn-outline-danger">Delete</button>
+        </td>
+        </tr>`
+        }
+
+        document.getElementById("data").innerHTML = str;
+        document.getElementById("total").innerText = "Total: " + array.length
+    }
+
+    displayProduct(array);
+
+    function addNewProduct() {
+        let name = document.getElementById("name").value
+        let price = document.getElementById("price").value
+        let color = document.getElementById("color").value
+        let product = new Product(name, price, color);
+        array.unshift(product);
+        displayProduct(array);
+    }
+
+    function deleteProduct(i) {
+        let name = document.getElementById("name").value
+        let price = document.getElementById("price").value
+        let color = document.getElementById("color").value
+        let product = new Product(name, price, color);
+        array.splice(product(i));
+        displayProduct(array);
+    }
+</script>
+
+</table>
+
+</body>
+</html>

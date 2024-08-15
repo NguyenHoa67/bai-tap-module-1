@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Hoa Hồng</title>
+</head>
+<body>
+<script>
+    let number = +prompt("nhập doanh số bán hàng");
+    let hoahong = 0
+    if (number > 1000) {
+        hoahong = number * 10 / 100;
+        document.write(hoahong + "<br>");
+    }
+    else if (number > 500) {
+        hoahong = number * 5 / 100;
+        document.write(hoahong + "<br>");
+    }
+    else if (number > 300) {
+        hoahong = number * 2 / 100;
+        document.write(hoahong + "<br>");
+    }
+    alert("Hưởng lương cơ bản");
+</script>
+
+</body>
+</html>

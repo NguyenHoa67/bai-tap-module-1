@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br>
+<input type="number" id="numberInput" placeholder="Nhập một số">
+<button onclick="checkPrime()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+    //Trong phần này, chúng ta sẽ phát triển một ứng dụng cho phép hiển thị 20 số nguyên tố đầu tiên trong dãy số tự nhiên
+
+    // số nguyên là những số nào? là số tự nhiên >=2 và chỉ chia hết cho 1 và chính nó
+    // Ví dụ , 2,3,5,7,11.... thuộc dãy số tự nhiên
+    // kiểm tra một số tự nhiên có phải là SNT?
+    //=> lấy n => chia n cho 1,2,3,4,5 .. n
+    // kiểm tra nếu số lần chia hết bằng 2 thì là SNT. 2 {1,2}, 3 {1,3}, không phải 4{1,2,4} =3
+
+
+    // viết một chương trình in ra các cố tự nhiên nhỏ 50;
+    // vòng lặp không xác định được số lần lặp
+
+    //let number = 2;
+    //let soLuongSNT =0;
+    //while (soLuongSNT<20){
+    // kiểm tra số number có phải là số nguyên tố hay không
+    // nêu number là số nguyên tố thì soLuongSNT ++;
+    // let flag= true;
+    //for (let i = 2; i < number ; i++) {
+    // if (number%i==0){
+    // flag = false;
+    // break;
+    // }
+    //}
+    //if (flag){
+    // soLuongSNT ++;
+    // console.log(number);
+    //}
+    // number++
+    //}
+    // while (soLuongSNT < N){
+    // // kiểm tra số number có phải là số nguyên tố hay không
+    // // nêu number là số nguyên tố thì soLuongSNT ++;
+    // let number = +prompt("nhập 1 số bất ki");
+    // let count=0;
+    //for (let i = 2; i < number; i++) {
+    // if (number % i == 0) {
+    // alert(number + " không phải là số n tố");
+    // count++;
+    //} else alert(number + " là số nguyên tố");
+    //}
+
+    //if (count==0) {
+    // soLuongSNT ++;
+    //console.log(number);
+    //}
+    //number++;
+    //# Ví dụ sử dụng
+    function checkPrime() {
+        let num = document.getElementById('numberInput').value;
+        let result = document.getElementById('result');
+        if (num <= 1) {
+            document.write(num + "  không phải số nguyên tố");
+            return;
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                document.write(num + "  không phải số nguyên tố");
+                return;
+            }
+        }
+        document.write(num + "  là số nguyên tố");
+    }
+</script>
+</body>
+</html>

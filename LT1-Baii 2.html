@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <h3>Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và </h3>
+    <h4>trả lại giá trị cho lời gọi hàm. Gọi hàm từ trong phần <body> của trang web</h4>
+    <h5>và hiển thị kết quả lên màn hình</h5>
+</head>
+<body>
+<script>
+    function nhanDoiso(number) {
+        number++
+        return number;
+    }
+    let number = +prompt("nhập 1 số");
+    let result = nhanDoiso(number);
+    document.write("Ket qua tra ve sau khi tang len 1 la: "+ result);
+</script>
+</body>
+</html>

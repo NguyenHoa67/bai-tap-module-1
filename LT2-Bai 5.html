@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title></title>
+    <h2>Viết hàm nhận vào 3 số nguyên bất kỳ, </h2>
+    <h3>trả về số nguyên có giá trị nhỏ nhất</h3>
+</head>
+<body>
+<script>
+    function songuyenMin(number1, number2, number3) {
+        let min = number1;
+        if (number2 < number1) {
+            min = number2
+        } else if (number3 < min) {
+            min = number3;
+        }
+        return min;
+    }
+    let number1 = +prompt("nhập số nguyên thứ 1");
+    let number2 = +prompt("nhập số nguyên thứ 2");
+    let number3 = +prompt("nhập số nguyên thứ 3");
+    let result = songuyenMin(number1, number2, number3);
+    document.write("Số nguyên nhỏ nhất là: " + result);
+</script>
+</body>
+</html>

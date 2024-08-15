@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/* viết 1 hàm nhận vào 1 tinh nhắn và hiển thị tin nhắn lên màn hình trang web*/
+//function displayMessage() {
+//    let message = prompt("nhập tin nhắn");
+//    alert(message);
+//}
+//displayMessage();
+//function sum(number1,number2) {
+  //  return number1 + number2;
+//}
+//let result = sum(3,5);
+//console.log(rusult);
+function sumOddInArray(numbers) {
+    let sumOdd = 0;
+    for (let sole of numbers) {
+        if (sole % 2 !== 0) {
+            sumOdd += sole;
+        }
+    }
+    return sumOdd;
+}
+    let numbers = [1, 2, 3, 4, 5, 6];
+    let sum = sumOddInArray(numbers);
+    document.write("Tổng của các số chẵn là: " + sum);
+//function nhanDoiso(number) {
+//    number++
+//   return number;
+//}
+//let number = +prompt("nhập 1 số");
+//let result = nhanDoiso(number);
+//document.write(result);
+</script>
+</body>
+</html>

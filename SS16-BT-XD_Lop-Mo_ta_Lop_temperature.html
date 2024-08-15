@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả Temperature</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(doC) {
+            this.doC = doC;
+        }
+        getDof() {
+            return (9 * this.doC / 5) + 32;
+        }
+        getDok() {
+            return this.doC + 273.15;
+        }
+    }
+    let temp = new Temperature(25);
+    let dof = temp.getDof();
+    let dok = temp.getDok();
+
+    document.write("Độ F: " + dof + "<br>");
+    document.write("Độ Kelvin: " + dok + "<br>");
+
+</script>
+
+</body>
+</html>

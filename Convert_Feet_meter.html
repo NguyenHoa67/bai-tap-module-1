@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi giữa feet và meters</title>
+</head>
+<body>
+Amount
+<input type="number" placeholder="valuetoconvert" id="GT"><br>
+From Currency<br>
+<select id="from" name="Currency1">
+    <option value="">—Select Currency—</option>
+    <option value="VND">VND</option>
+    <option value="USD">USD</option>
+</select><br>
+to Currency<br>
+<select id="to" name="Currency2">
+    <option value="">—Select Currency—</option>
+    <option value="VND">VND</option>
+    <option value="USD">USD</option>
+</select><br>
+Click this button:
+<button onclick="chuyenDoi()">Convert</button>
+<p id="result"></p>
+<script>
+    let dvt = text;
+     function chuyendoiDvt(dvt) {
+        if (dvt = foot) {
+            meter = giatriDvt * 0.3048;
+            return meter;
+        }
+        if (dvt = met) {
+            footer =giatriDvt/ 0.3048;
+            return footer;
+        }
+    }
+    let dvt = prompt("nhập dvt");
+    let giatriDvt = prompt ("nhập giá tri");
+    let result = chuyendoiDvt("foot");
+    document.write(result);
+
+</script>
+</body>
+</html>

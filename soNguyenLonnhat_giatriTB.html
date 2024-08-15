@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tao Mang Nguysố en và tìm số nguyen lơn nhất và giá trị TB của các số Nguyen</title>
+</head>
+<body>
+<script>
+    let ints = [5, 3, 2, 26, 7, 9, 10, 8, 6, 35];
+    let max = ints[0];
+    let position = 0;
+    for (let i = 0; i < ints.length; i++) {
+        if (ints[i] > max) {
+            max = ints[i];
+            position = i;
+           }
+    }
+    document.write("Số nguyên lớn nhất là số: " + max + " tại vị trí số: " + position + "<br>");
+    let sum = 0;
+    for (let i = 0; i < ints.length; i++) {
+        sum += ints[i];
+    }
+    let average = sum / ints.length;
+    document.write("Tổng của các số nguyên trong mảng là: "+sum+"<br>");
+    document.write("GTTB của các số nguyên trong mảng là: " + average);
+</script>
+</body>
+</html>

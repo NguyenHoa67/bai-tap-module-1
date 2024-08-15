@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Input<br>
+<input type="number" placeholder="valuetoconvert" id="GT"><br><br>
+From measurement unit in:<br>
+<select id="from" name="measure1">
+    <option value="">—Select Measure—</option>
+    <option value="feet">foot</option>
+    <option value="metres">metre</option>
+</select><br><br>
+To measurement unit in:<br>
+<select id="to" name="measure2">
+    option value="">—Select Measure—</option>
+    <option value="metres">metre</option>
+    <option value="feet">foot</option>
+</select><br><br>
+Click this button to:
+<button onclick="chuyenDoi()">Convert</button>
+<p id="result"></p>
+<script>
+    function chuyenDoi() {
+        let gtGT = +document.getElementById("GT").value;
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+        let ketQuamet = gtGT
+        if (from === "feet" && to === "metres") {
+            ketQuamet = gtGT * 0.3048;
+            document.getElementById("result").innerHTML = "Result: " + document.getElementById("GT").value + " "+ document.getElementById("from").value + " = "+ ketQuamet + " metres";
+        } else if (from === "metres " && to === "feet") {
+            ketQuafoot = gtGT / 0.3048;
+            document.getElementById("result").innerHTML = "Result: " + document.getElementById("GT").value + " " + document.getElementById("from").value + " = " + ketQuafoot + " feet";
+        }
+    }
+</script>
+</body>
+</html>

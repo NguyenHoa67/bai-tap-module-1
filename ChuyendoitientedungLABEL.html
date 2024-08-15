@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+</head>
+<body>
+<label for="GT">Amount:</label><br>
+<input type="number" id="GT"><br>
+<label for="from">From:</label>
+<select id="from">
+    <option value="">—Select Currency—</option>
+    <option value="USD">USD</option>
+    <option value="VND">VND</option>
+</select><br>
+<label for="to">To:</label>
+<select id="to">
+    <option value="">—Select Currency—</option>
+    <option value="USD">USD</option>
+    <option value="VND">VND</option>
+</select><br>
+Click button below:<br>
+<button onclick="chuyenDoi()">Convert</button>
+<p id="result"></p>
+<script>
+    function chuyenDoi() {
+        let gtGT = +document.getElementById("GT").value;
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+        let ketQua = gtGT;
+
+        if (from === "USD" && to === "VND") {
+            ketQua = gtGT * 25000;
+            document.getElementById("result").innerHTML = "result: " + ketQua + " VND";
+        } else if (from === "VND" && to === "USD") {
+            ketQua = gtGT / 25000;
+            document.getElementById("result").innerHTML = "result: " + "USD " + ketQua;
+        }
+    }
+</script>
+</body>
+</html>

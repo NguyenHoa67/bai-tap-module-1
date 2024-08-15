@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <h2>Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ,</h2>
+    <h3>, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.</h3>
+    <h4>Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.</h4>
+</head>
+<body>
+<h1>Kiểm tra kí tự trong mảng </h1>
+<button style="width:200px; height:20px" onclick="check()">Tạo mảng để kiểm tra</button>
+<p id="banDau"></p>
+<p id="result"></p>
+<script>
+    function taoMang() {
+        let arr = [];
+        let number = +prompt("Nhập số lượng phần tử của mảng");
+        for (let i = 0; i < number; i++) {
+            arr[i] = prompt("Nhập phần tử thứ " + (i + 1) + " của mảng");
+        }
+        return arr;
+    }
+
+    let count = 0;
+
+    function check() {
+        let array = taoMang();
+        document.getElementById("banDau").innerText = "Mảng ban đầu là: " + array;
+        let check = prompt("Nhập ký tự muốn kiểm tra");
+        for (let i = 0; i < array.length; i++) {
+            if (check == array[i]) {
+                document.write("kí tự nhập vào ["+ check +"] có trong mảng tại vị trí " + i+"<br>");
+                count++
+            }
+        }
+        return document.getElementById("result").innerHTML = "-1";
+    }
+</script>
+</body>
+</html>
