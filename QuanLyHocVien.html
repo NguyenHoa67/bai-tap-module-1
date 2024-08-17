@@ -74,12 +74,9 @@
     </tr>
     <tr>
         <th style="text-align: right; background-color: lightgrey;">Click to</th>
-        <td>
-            <button onclick="addNewStudent()">AddNew</button>
-        </td>
-        <td>
-            <button onclick="updateStudent()">Update</button>
-        </td>
+        <td> <button onclick="addNewStudent()">AddNew</button></td>
+        <th style="text-align: right; background-color: lightgrey;">Click to</th>
+        <td><button onclick="updateStudent()">Update</button></td>
     </tr>
 </table>
 
@@ -207,7 +204,7 @@
 
     function showUpdate(index) {
         i = index;
-        document.getElementById("mahv").value = array[index].getMahv;
+        document.getElementById("mahv").value = array[index].getMahv();
         document.getElementById("name").value = array[index].getName();
         document.getElementById("birthday").value = array[index].getBirthday();
         document.getElementById("sex").value = array[index].getSex();
@@ -223,11 +220,11 @@
         let studentSclass = document.getElementById("sclass").value;
         let studentPhotoInput = document.getElementById("photo");
 
-        if (studentName && studentBirthday && studentSex && studentSclass) {
+        if (studentMahv && studentName && studentBirthday && studentSex && studentSclass) {
             let reader = new FileReader();
             reader.onload = function (event) {
                 let studentPhoto = studentPhotoInput.files.length > 0 ? event.target.result : array[i].getPhoto();
-                let student = new Student(studentName, studentBirthday, studentSex, studentSclass, studentPhoto);
+                let student = new Student(studentMahv, studentName, studentBirthday, studentSex, studentSclass, studentPhoto);
                 array[i] = student;
 
                 document.getElementById("mahv").value = "";
@@ -244,7 +241,7 @@
                 reader.readAsDataURL(studentPhotoInput.files[0]);
             } else {
                 let studentPhoto = array[i].getPhoto();
-                let student = new Student(studentName, studentBirthday, studentSex, studentSclass, studentPhoto);
+                let student = new Student(studentMahv, studentName, studentBirthday, studentSex, studentSclass, studentPhoto);
                 array[i] = student;
 
                 document.getElementById("mahv").value = "";
