@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực Hiện so với Ngan Sach của Các gói OSE</title>
+</head>
+<body>
+<h3>QUẢN LÝ VIỆC THỰC HIỆN CÁC GÓI OSE </h3>
+
+<div style="display: inline-block; width: 50%; float: left">
+    <h4>Thêm Gói OSE mới hoặc Cập nhật Ngân sách OSE </h4>
+    <table>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Nhập Mã Gói OSE</th>
+            <td><input type="text" id="ose_code" placeholder="Nhập mã gói OSE..."></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Nội Dung gói OSE</th>
+            <td><input type="text" id="name" placeholder="Nhập Nội dung gói có Mã OSE..."></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Nhập Ngày Sinh</th>
+            <td><input type="text" id="birthday" placeholder="Nhập Ngày Sinh..."></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Giới Tính</th>
+            <td><input type="text" id="sex" placeholder="Giới tính..."></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Nhập Mã Lớp</th>
+            <td><input type="text" id="sclass" placeholder="Lớp cv..."></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Chọn Tệp Ảnh</th>
+            <td><input type="file" id="photo" accept="image/*"></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Click</th>
+            <td> <button onclick="addNewStudent()">AddNew</button></td>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Click</th>
+            <td><button onclick="updateStudent()">Update</button></td>
+        </tr>
+    </table>
+</div>
+
+<div style="display: inline-block; width: 50%; float: right">
+    <h4>Danh Sách tất cả học viên</h4>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align: center; background-color: lightgrey;">Stt</th>
+            <th style="text-align: center; background-color: lightgrey;">ID</th>
+            <th style="text-align: center; background-color: lightgrey;">Họ Và Tên</th>
+            <th style="text-align: center; background-color: lightgrey;">Ngày Sinh</th>
+            <th style="text-align: center; background-color: lightgrey;">Sex</th>
+            <th style="text-align: center; background-color: lightgrey;">Lớp</th>
+            <th style="text-align: center; background-color: lightgrey;">Ảnh</th>
+            <th colspan="2" style="text-align: center; background-color: lightgrey;">Tùy Chọn</th>
+        </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+    <p>Tổng cộng số học viên: <span id="total"></span></p>
+</div>
+
+</body>
+</html>

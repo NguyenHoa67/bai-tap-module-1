@@ -5,37 +5,30 @@
     <title>Case Study</title>
     <style>
         body {
-            background-color: #C0D3FA;
+            background-color: lavender;
         }
-
         table {
             table-layout: auto;
             background-color: silver;
-        / / #C0D3FA;
         }
-
         th, td {
             width: auto;
             height: auto;
-            padding: 5px;
-            background-color: lightgreen;
-        / / #EB822A;
-        / / #ffffff
+            padding: 0px;
+            background-color: lightgrey
         }
-
+        /* Tùy chỉnh màu sắc của nút Edit */
         .edit-icon {
             color: #005949; /* Màu xanh lá cho biểu tượng Edit */
             font-size: 24px; /* Kích thước biểu tượng */
             cursor: pointer; /* Thay đổi con trỏ khi di chuột qua biểu tượng */
         }
-
-        /* Tùy chỉnh màu sắc của biểu tượng Delete */
+        /* Tùy chỉnh màu sắc của nút Delete */
         .delete-icon {
             color: #F44336; /* Màu đỏ cho biểu tượng Delete */
             font-size: 24px; /* Kích thước biểu tượng */
             cursor: pointer; /* Thay đổi con trỏ khi di chuột qua biểu tượng */
         }
-
         /* Thay đổi màu sắc khi di chuột qua biểu tượng */
         .edit-icon:hover, .delete-icon:hover {
             opacity: 0.7; /* Hiệu ứng mờ khi di chuột qua */
@@ -44,63 +37,68 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-<h2>QUẢN LÝ HỌC VIÊN </h2>
+<h3>QUẢN LÝ HỌC VIÊN </h3>
+<hr>
+<div style="display: inline-block; width: 50%; float: left">
+    <h4>Thêm mới hoặc Cập nhật học viên </h4>
+    <table>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Nhập Mã HV</th>
+            <td><input type="text" id="mahv" placeholder="Nhập mã học viên..."></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Nhập Họ và Tên</th>
+            <td><input type="text" id="name" placeholder="Nhập Họ và Tên..."></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Nhập Ngày Sinh</th>
+            <td><input type="date" id="birthday" placeholder="Nhập Ngày Sinh...">
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Giới Tính</th>
+            <td><input type="text" id="sex" placeholder="Giới tính..."></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Nhập Mã Lớp</th>
+            <td><input type="text" id="sclass" placeholder="Lớp cv..."></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Chọn Tệp Ảnh</th>
+            <td><input type="file" id="photo" accept="image/*"></td>
+        </tr>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Click</th>
+            <td> <button onclick="addNewStudent()">AddNew</button></td>
+        <tr>
+            <th style="text-align: right; background-color: lightgrey;">Click</th>
+            <td><button onclick="updateStudent()">Update</button></td>
+        </tr>
+    </table>
+</div>
 
-<h4>Thêm mới hoặc Cập nhật học viên </h4>
-<table>
-    <tr>
-        <th style="text-align: right; background-color: lightgrey;">Nhập Mã HV</th>
-        <td><input type="text" id="mahv" placeholder="Nhập mã học viên..."></td>
-    </tr>
-    <tr>
-        <th style="text-align: right; background-color: lightgrey;">Nhập Họ và Tên</th>
-        <td><input type="text" id="name" placeholder="Nhập Họ và Tên..."></td>
-    </tr>
-    <tr>
-        <th style="text-align: right; background-color: lightgrey;">Nhập Ngày Sinh</th>
-        <td><input type="text" id="birthday" placeholder="Nhập Ngày Sinh..."></td>
-    </tr>
-    <tr>
-        <th style="text-align: right; background-color: lightgrey;">Giới Tính</th>
-        <td><input type="text" id="sex" placeholder="Giới tính..."></td>
-    </tr>
-    <tr>
-        <th style="text-align: right; background-color: lightgrey;">Nhập Mã Lớp</th>
-        <td><input type="text" id="sclass" placeholder="Lớp cv..."></td>
-    </tr>
-    <tr>
-        <th style="text-align: right; background-color: lightgrey;">Chọn Tệp Ảnh</th>
-        <td><input type="file" id="photo" accept="image/*"></td>
-    </tr>
-    <tr>
-        <th style="text-align: right; background-color: lightgrey;">Click to</th>
-        <td> <button onclick="addNewStudent()">AddNew</button></td>
-        <th style="text-align: right; background-color: lightgrey;">Click to</th>
-        <td><button onclick="updateStudent()">Update</button></td>
-    </tr>
-</table>
-
-<h3>Danh Sách tất cả học viên</h3>
-<p>Tổng cộng số học viên: <span id="total"></span></p>
-<table>
-    <thead>
-    <tr>
-        <th style="text-align: center; background-color: lightgrey;">Stt</th>
-        <th style="text-align: center; background-color: lightgrey;">ID</th>
-        <th style="text-align: center; background-color: lightgrey;">Họ Và Tên</th>
-        <th style="text-align: center; background-color: lightgrey;">Ngày Sinh</th>
-        <th style="text-align: center; background-color: lightgrey;">Sex</th>
-        <th style="text-align: center; background-color: lightgrey;">Lớp</th>
-        <th style="text-align: center; background-color: lightgrey;">Ảnh</th>
-        <th colspan="2" style="text-align: center; background-color: lightgrey;">Tùy Chọn</th>
-    </tr>
-    </thead>
-    <tbody id="tbody"></tbody>
-</table>
+<div style="display: inline-block; width: 50%; float: right">
+    <h4>Danh Sách tất cả học viên</h4>
+    <table>
+        <thead>
+        <tr>
+            <th style="text-align: center; background-color: lightgrey;">Stt</th>
+            <th style="text-align: center; background-color: lightgrey;">ID</th>
+            <th style="text-align: center; background-color: lightgrey;">Họ Và Tên</th>
+            <th style="text-align: center; background-color: lightgrey;">Ngày Sinh</th>
+            <th style="text-align: center; background-color: lightgrey;">Sex</th>
+            <th style="text-align: center; background-color: lightgrey;">Lớp</th>
+            <th style="text-align: center; background-color: lightgrey;">Ảnh</th>
+            <th colspan="2" style="text-align: center; background-color: lightgrey;">Tùy Chọn</th>
+        </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+    <p>Tổng cộng số học viên: <span id="total"></span></p>
+</div>
 
 <script>
     class Student {
-        constructor(mahv, name, birthday, sex, sclass, photo) {
+        constructor(mahv, name, birthday,sex, sclass, photo) {
             this.mahv = mahv;
             this.name = name;
             this.birthday = birthday;
@@ -108,40 +106,33 @@
             this.sclass = sclass;
             this.photo = photo;
         }
-
         getMahv() {
             return this.mahv;
         }
-
         getName() {
             return this.name;
         }
-
         getBirthday() {
             return this.birthday;
         }
-
         getSex() {
             return this.sex;
         }
-
         getSclass() {
             return this.sclass;
         }
-
         getPhoto() {
             return this.photo;
         }
     }
-
     let array = [
-        new Student("0100", "Nguyễn Văn A", "26/09/1994", "M", "cv046", "photo1.jpg"),
-        new Student("0101", "Nguyễn Văn B", "17/01/2004", "M", "cv046", "photo2.jpg"),
-        new Student("0102", "Nguyễn Văn C", "21/08/2001", "M", "cv045", "photo3.jpg"),
-        new Student("0103", "Nguyễn Thị F", "12/11/2009", "F", "cv046", "photo4.jpg"),
-        new Student("0104", "Nguyễn Thị G", "15/07/1998", "F", "cv046", "photo5.jpg")
+        new Student("0100", "Nguyễn Minh A", "26/09/1994", "M", "cv046", "photo1.jpg"),
+        new Student("0101", "Huỳnh Văn Đúc B", "17/01/2004", "M", "cv047", "photo2.jpg"),
+        new Student("0102", "Nguyễn Nhật C", "21/08/2001", "M", "cv048", "photo3.jpg"),
+        new Student("0103", "Đỗ Thị Tú F", "12/11/2009", "F", "cv047", "photo4.jpg"),
+        new Student("0104", "Ngô Ánh G", "15/07/1998", "F", "cv048", "photo5.jpg"),
+        new Student("0105", "Lê Thị Uyên H", "15/07/2001", "F", "cv04", "photo5.jpg"),
     ];
-
     function displayStudent(arr) {
         let str = "";
         for (let i = 0; i < arr.length; i++) {
@@ -160,7 +151,6 @@
         document.getElementById("tbody").innerHTML = str;
         document.getElementById("total").innerText = arr.length;
     }
-
     function addNewStudent() {
         let studentMahv = document.getElementById("mahv").value;
         let studentName = document.getElementById("name").value;
@@ -199,9 +189,7 @@
             displayStudent(array);
         }
     }
-
     let i = -1;
-
     function showUpdate(index) {
         i = index;
         document.getElementById("mahv").value = array[index].getMahv();
@@ -211,7 +199,6 @@
         document.getElementById("sclass").value = array[index].getSclass();
         document.getElementById("photo").value = "";
     }
-
     function updateStudent() {
         let studentMahv = document.getElementById("mahv").value;
         let studentName = document.getElementById("name").value;
@@ -220,7 +207,7 @@
         let studentSclass = document.getElementById("sclass").value;
         let studentPhotoInput = document.getElementById("photo");
 
-        if (studentMahv && studentName && studentBirthday && studentSex && studentSclass) {
+        if (studentMahv && studentName && studentBirthday && studentGender && studentSclass) {
             let reader = new FileReader();
             reader.onload = function (event) {
                 let studentPhoto = studentPhotoInput.files.length > 0 ? event.target.result : array[i].getPhoto();
@@ -258,9 +245,7 @@
             alert("Vui lòng nhập đầy đủ thông tin!");
         }
     }
-
     displayStudent(array);
-
 </script>
 </body>
 </html>
